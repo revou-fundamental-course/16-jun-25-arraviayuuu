@@ -1,70 +1,56 @@
-// Selamat datang di Calthics!
-alert("Welcome to Calthics");
-
-// Fungsi untuk menampilkan hasil di dalam kontainer target
-function tampilkanHasil(idContainer, teksRumus, teksHasil) {
-  const container = document.getElementById(idContainer);
-  container.innerHTML = `
-    <p style="text-align:left">${teksRumus}</p>
-    <p style="text-align:left"><strong>${teksHasil}</strong></p>`;
-}
-
-// --- Event untuk Hitung Luas Segitiga ---
-function hitungLuas() {
-  const alas = parseFloat(document.getElementById("alas").value);
-  const tinggi = parseFloat(document.getElementById("tinggi").value);
-
-  if (isNaN(alas) || isNaN(tinggi) || alas <= 0 || tinggi <= 0) {
-    alert("Masukkan angka yang valid untuk alas dan tinggi.");
-    return;
+document.addEventListener("DOMContentLoaded", () => {
+  function tampilkanRumusDanHasil(containerId, rumusHTML, hasilText) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = `
+      <div class="rumus-container">
+        <p>Rumus:</p>
+        ${rumusHTML}
+      </div>
+      <p class="hasil"><strong>${hasilText}</strong></p>
+    `;
   }
 
-  const luas = 0.5 * alas * tinggi;
-  const rumus = `Rumus: ½ × ${alas} × ${tinggi}`;
-  const hasil = `Luas Segitiga = ${luas} cm²`;
+  // Hitung Luas
+  document.getElementById("hitungLuas").addEventListener("click", () => {
+    const a = parseFloat(document.getElementById("alas").value);
+    const t = parseFloat(document.getElementById("tinggi").value);
+    if (isNaN(a) || isNaN(t) || a <= 0 || t <= 0)
+      return alert("Masukkan angka valid untuk alas dan tinggi.");
 
-  tampilkanHasil("hasilLuas", rumus, hasil);
-}
+    const luas = 0.5 * a * t;
+    // Rumus dengan MathML:
+    const rumusML = `
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+        <mrow>
+          <mn>½</mn><mo>×</mo><mi>a</mi><mo>×</mo><mi>t</mi>
+        </mrow>
+      </math>`;
+    tampilkanRumusDanHasil(
+      "hasilLuas",
+      rumusML,
+      `L = ½ × ${a} × ${t} = ${luas} cm²`
+    );
+  });
 
-// --- Event untuk Hitung Keliling Segitiga ---
-function hitungKeliling() {
-  const sisiA = parseFloat(document.getElementById("sisi-a").value);
-  const sisiB = parseFloat(document.getElementById("sisi-b").value);
-  const sisiC = parseFloat(document.getElementById("sisi-c").value);
+  // Hitung Keliling
+  document.getElementById("hitungKeliling").addEventListener("click", () => {
+    const a = parseFloat(document.getElementById("sisi-a").value);
+    const b = parseFloat(document.getElementById("sisi-b").value);
+    const c = parseFloat(document.getElementById("sisi-c").value);
+    if (isNaN(a) || isNaN(b) || isNaN(c) || a <= 0 || b <= 0 || c <= 0)
+      return alert("Masukkan angka valid untuk ketiga sisi.");
 
-  if (
-    isNaN(sisiA) ||
-    isNaN(sisiB) ||
-    isNaN(sisiC) ||
-    sisiA <= 0 ||
-    sisiB <= 0 ||
-    sisiC <= 0
-  ) {
-    alert("Masukkan angka yang valid untuk ketiga sisi.");
-    return;
-  }
-
-  const keliling = sisiA + sisiB + sisiC;
-  const rumus = `Rumus: ${sisiA} + ${sisiB} + ${sisiC}`;
-  const hasil = `Keliling Segitiga = ${keliling} cm`;
-
-  tampilkanHasil("hasilKeliling", rumus, hasil);
-}
-
-// --- Pasang Event Listener setelah DOM siap ---
-document.addEventListener("DOMContentLoaded", function () {
-  // Pastikan ada wadah untuk hasil
-  let divL = document.createElement("div");
-  divL.id = "hasilLuas";
-  document.getElementById("hitungLuas").parentElement.appendChild(divL);
-
-  let divK = document.createElement("div");
-  divK.id = "hasilKeliling";
-  document.getElementById("hitungKeliling").parentElement.appendChild(divK);
-
-  // Hubungkan tombol ke fungsi
-  document.getElementById("hitungLuas").addEventListener("click", hitungLuas);
-  document
-    .getElementById("hitungKeliling")
-    .addEventListener("click", hitungKeliling);
+    const kel = a + b + c;
+    const rumusML = `
+      <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+        <mrow>
+          <mi>a</mi><mo>+</mo><mi>b</mi><mo>+</mo><mi>c</mi>
+        </mrow>
+      </math>`;
+    tampilkanRumusDanHasil(
+      "hasilKeliling",
+      rumusML,
+      `K = ${a} + ${b} + ${c} = ${kel} cm`
+    );
+  });
 });

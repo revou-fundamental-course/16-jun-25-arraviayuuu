@@ -1,101 +1,143 @@
+/* Reset & dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: Arial, sans-serif;
+  background: #f4f7f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 10px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-header {
+/* Header & Nav */
+.main-header {
   text-align: center;
+  margin-bottom: 20px;
 }
-
-nav {
+.navbar {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
-
-nav a {
+.navbar a {
+  padding: 10px;
+  background: aliceblue;
   border-radius: 8px;
-  height: 50px;
-  align-content: center;
-  background-color: aliceblue;
-  color: black;
-  text-decoration: none;
+}
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.bg-aliceblue {
-  background-color: aliceblue;
+/* Konten */
+.card {
+  background: #fff;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-
-.bg-antique-white {
-  background-color: antiquewhite;
-}
-
-main {
-  display: flex;
-  gap: 32px;
-}
-
-main > section {
-  flex: 1;
-  text-align: center;
-}
-
 .formula-img {
-  height: 293px;
-  width: 239px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  height: 180px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 10px 0;
 }
-
 .img-luas {
   background-image: url(https://www.advernesia.com/wp-content/uploads/2018/10/Segitiga-sama-kaki.png);
 }
-
 .img-keliling {
   background-image: url(https://www.advernesia.com/wp-content/uploads/2018/10/Segitiga-sama-kaki.png);
 }
-
-/* Form Style */
-input[type="number"],
-select {
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+label,
+input,
+button {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
+}
+input {
+  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
 }
-
 button {
-  background: aquamarine;
+  padding: 10px;
+  background: #4a90e2;
+  color: #fff;
   border: none;
-  padding: 8px;
-  border-radius: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background: #357ab8;
+}
+#hasilLuas,
+#hasilKeliling {
+  background: #eef6fc;
+  border-left: 4px solid #4a90e2;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 15px;
   margin-top: 30px;
   font-size: 0.9rem;
   color: #777;
 }
 
+/* Media Queries: mobile‑first */
+@media screen and (min-width: 600px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  main {
+    display: flex;
+    gap: 20px;
+  }
+  .card {
+    flex: 1;
+  }
+  .formula-img {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .menu-toggle {
+    display: block;
+  }
+  .navbar a {
+    display: none;
+  }
+  .navbar.active a {
+    display: block;
+  }
+}
+
 /* Responsive Design */
-/* CSS Responsive dasar */
-@media (max-width: 768px) {
-  .container {
+@media (max-width: 480px) {
+  main {
     flex-direction: column;
-    padding: 10px;
-  }
-
-  .form-input {
-    width: 100%;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-    text-align: center;
   }
 }

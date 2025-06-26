@@ -4,116 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mathematics Web</title>
-
-    <!-- CSS External-->
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
   </head>
-
   <body>
-    <!-- Head Content-->
     <header class="main-header">
       <h1>Welcome to My Calthics</h1>
       <p>
-        Mathematics Web adalah sebuah website interaktif yang dirancang untuk membantu pengguna dalam mempelajari dan memahami konsep-konsep dasar maupun lanjutan dalam matematika. Website ini menyediakan berbagai fitur kalkulator matematika serta visualisasi interaktif yang mempermudah proses belajar. Dengan antarmuka yang ramah pengguna dan konten yang sistematis, Mathematics Web cocok digunakan oleh pelajar, mahasiswa, maupun siapa saja yang ingin memperdalam kemampuan matematikanya secara mandiri dan menyenangkan.
+        Calthics atau Mathematics Web adalah sebuah website interaktif yang
+        dirancang untuk membantu pengguna dalam mempelajari dan memahami
+        konsep-konsep dasar dalam matematika. Website ini menyediakan berbagai
+        fitur seperti kalkulator matematika, penjelasan materi, serta
+        visualisasi interaktif yang mempermudah proses belajar. Dengan antarmuka
+        yang ramah pengguna dan konten yang sistematis, Calthics cocok digunakan
+        oleh pelajar, mahasiswa, maupun siapa saja yang ingin memperdalam
+        kemampuan matematikanya secara mandiri dan menyenangkan.
       </p>
-
-      <!-- Navigation -->
-      <nav>
-        <a class="bg-aliceblue" href="">Luas Segitiga</a>
-        <a class="bg-antique-white" href="">Keliling Segitiga</a>
+      <nav class="navbar">
+        <a href="#luas">Luas Segitiga</a>
+        <a href="#keliling">Keliling Segitiga</a>
+        <button class="menu-toggle">☰</button>
       </nav>
     </header>
 
-    <!-- Main Content-->
     <main>
-      <!-- Luas Segitiga -->
-      <section>
-        <header>
-          <h2>Luas Segitiga</h2>
-        </header>
-
-        <!-- Konten Luas -->
+      <section id="luas" class="card">
+        <h2>Luas Segitiga</h2>
         <div class="formula-img img-luas"></div>
-
-        <p class="rumus-luas">Rumus Luas Segitiga:</p>
-            <h4><strong>L = ½ x Alas x Tinggi</strong></h4>
-            <p class="rumus-luas">Keterangan :<br>
-               L = Luas Segitiga<br>
-               Alas = Alas Segitiga<br>
-               Tinggi = Tinggi Segitiga</p>
-
-        <!-- Form Luas -->
         <form>
-          <header>
-            <h2>Form Luas Segitiga</h2>
-          </header>
-
-          <div>
           <label>Alas:</label>
-          <input type="number" id="alas" placeholder="Masukkan Alas Segitiga" required />
-
+          <input type="number" id="alas" required />
           <label>Tinggi:</label>
-          <input type="number" id="tinggi" placeholder="Masukkan Tinggi Segitiga" required />
-
-          <button type="button" id="hitungLuas" onclick="hitungLuas()">Hitung Luas</button>
-          <!-- <button type="button" id="resetLuas" onclick="resetLuas()">⌫</button> -->
-          </div>
+          <input type="number" id="tinggi" required />
+          <button type="button" id="hitungLuas">Hitung Luas</button>
+          <div id="hasilLuas"></div>
         </form>
       </section>
 
-      <!-- Keliling -->
-      <section>
-        <header>
-          <h2>Keliling Segitiga</h2>
-        </header>
-
-        <!-- Konten Keliling -->
+      <section id="keliling" class="card">
+        <h2>Keliling Segitiga</h2>
         <div class="formula-img img-keliling"></div>
-        
-        <p class="rumus-keliling">Rumus Keliling Segitiga: </p>
-            <h4><strong>K = Sisi A + Sisi B + Sisi C</strong></h4>
-            <p class="rumus-keliling">Keterangan :<br>
-               K = Keliling Segitiga<br>
-               Sisi A = Sisi Pertama Segitiga<br>
-               Sisi B = Sisi Kedua Segitiga<br>
-               Sisi C = Sisi Ketiga Segitiga</p>
-               
-
-
-        <!-- Form Keliling -->
         <form>
-          <header>
-            <h2>Form Keliling Segitiga</h2>
-          </header>
-
-          <div>
-            <label>Sisi A:</label>
-            <input type="number" id="sisi-a" placeholder="Masukkan Sisi A" required />
-          </div>
-
-          <div>
-            <label>Sisi B:</label>
-            <input type="number" id="sisi-b" placeholder="Masukkan Sisi B" required/>
-          </div>
-
-          <div>
-            <label>Sisi C:</label>
-            <input type="number" id="sisi-c" placeholder="Masukkan Sisi C" required/>
-          </div>
-
-            <button type="button" id="hitungKeliling"onclick="hitungKeliling()" >Hitung Keliling</button>
-            <!-- <button type="button" id="resetKeliling" onclick="resetKeliling()" >⌫</button> -->
-            </div>
+          <label>Sisi A:</label>
+          <input type="number" id="sisi-a" required />
+          <label>Sisi B:</label>
+          <input type="number" id="sisi-b" required />
+          <label>Sisi C:</label>
+          <input type="number" id="sisi-c" required />
+          <button type="button" id="hitungKeliling">Hitung Keliling</button>
+          <div id="hasilKeliling"></div>
         </form>
       </section>
     </main>
 
-    <!-- Footer Content-->
     <footer>
-      <p>&copy; 2025 Arravi Ayu. All right reserved.</p>
+      <p>&copy; 2025 Arravi Ayu. All rights reserved.</p>
     </footer>
-
-    <!-- Eksternal Javascript -->
-     <script src="js/script.js"></script>
   </body>
 </html>
